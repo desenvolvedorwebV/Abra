@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Feliz Aniversário, Amor!</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --rosa: #ff4d8d;
+    --rosa-claro: #ffb6cf;
+    --vermelho: #ff1744;
+    --dourado: #ffd166;
+    --roxo: #8b5cf6;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top,rgba(255,255,255,.18),transparent 35%),
+        linear-gradient(160deg,#ff758c,#ff7eb3 45%,#8b5cf6);
+    color: white;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 3%),
+        radial-gradient(circle at 75% 15%, rgba(255,255,255,.18), transparent 4%),
+        radial-gradient(circle at 80% 75%, rgba(255,255,255,.15), transparent 5%);
+    animation: brilhoFundo 5s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes brilhoFundo {
+    from {
+        opacity: .4;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    min-height: 100vh;
+    padding: 25px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.titulo {
+    font-size: clamp(36px, 9vw, 82px);
+    line-height: 1;
+    margin-bottom: 15px;
+    text-shadow: 0 4px 0 rgba(167, 22, 83, .3), 0 8px 20px rgba(71, 8, 49, .35);
+    animation: entradaTitulo 1.2s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.titulo span {
+    display: inline-block;
+    color: #fff5b7;
+    animation: pulsarTexto 1.5s ease-in-out infinite;
+}
+
+@keyframes entradaTitulo {
+    0% {
+        opacity: 0;
+        transform:
+            translateY(-80px)
+            scale(.4)
+            rotate(-8deg);
+    }
+
+    70% {
+        transform:
+            translateY(10px)
+            scale(1.08)
+            rotate(2deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1)
+            rotate(0);
+    }
+}
+
+@keyframes pulsarTexto {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.07);
+    }
+}
+
+.mensagem {
+    width: min(600px, 92vw);
+    padding: 16px 22px;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 22px;
+    background: rgba(255,255,255,.16);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 35px rgba(70, 10, 55, .22);
+    font-size: clamp(17px, 4vw, 23px);
+    line-height: 1.5;
+    animation: entradaMensagem 1s .5s both;
+}
+
+@keyframes entradaMensagem {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bolo-container {
+    position: relative;
+    width: 210px;
+    height: 210px;
+    margin: 22px 0 5px;
+    animation: aparecerBolo 1s .9s both;
+}
+
+@keyframes aparecerBolo {
+    from {
+        opacity: 0;
+        transform: scale(.2) rotate(-15deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+.prato {
+    position: absolute;
+    bottom: 13px;
+    left: 50%;
+    width: 210px;
+    height: 24px;
+    transform: translateX(-50%);
+    background: #f7f1ff;
+    border-radius: 50%;
+    box-shadow: 0 10px 15px rgba(77, 8, 56, .25);
+}
+
+.bolo {
+    position: absolute;
+    bottom: 27px;
+    left: 50%;
+    width: 160px;
+    height: 95px;
+    transform: translateX(-50%);
+    background:
+        linear-gradient(
+            90deg,
+            #ff9a9e,
+            #fad0c4
+        );
+    border-radius: 15px 15px 8px 8px;
+    box-shadow:
+        inset 0 -12px 0 rgba(184, 57, 100, .18),
+        0 10px 20px rgba(67, 5, 43, .2);
+}
+
+.cobertura {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 30px;
+    background: #fff2f7;
+    border-radius: 15px 15px 45% 45%;
+}
+
+.cobertura::before,
+.cobertura::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    width: 22px;
+    height: 30px;
+    background: #fff2f7;
+    border-radius: 0 0 15px 15px;
+}
+
+.cobertura::before {
+    left: 25px;
+}
+
+.cobertura::after {
+    right: 32px;
+    height: 23px;
+}
+
+.decoracao {
+    position: absolute;
+    left: 50%;
+    bottom: 26px;
+    transform: translateX(-50%);
+    font-size: 35px;
+}
+
+.velas {
+    position: absolute;
+    z-index: 3;
+    top: 40px;
+    left: 50%;
+    display: flex;
+    gap: 24px;
+    transform: translateX(-50%);
+}
+
+.vela {
+    position: relative;
+    width: 10px;
+    height: 48px;
+    border-radius: 4px 4px 2px 2px;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #ffffff 0 6px,
+            #ff4d8d 6px 12px
+        );
+}
+
+.chama {
+    position: absolute;
+    left: 50%;
+    top: -25px;
+    width: 16px;
+    height: 25px;
+    transform: translateX(-50%);
+    border-radius: 50% 50% 45% 45%;
+    background:
+        linear-gradient(
+            #fff9a8,
+            #ff9f1c 65%,
+            #ff3d00
+        );
+    box-shadow:
+        0 0 12px #ffd166,
+        0 0 22px rgba(255, 209, 102, .8);
+    transform-origin: center bottom;
+    animation: chama .35s ease-in-out infinite alternate;
+}
+
+@keyframes chama {
+    from {
+        transform:
+            translateX(-50%)
+            rotate(-5deg)
+            scaleY(.95);
+    }
+
+    to {
+        transform:
+            translateX(-50%)
+            rotate(6deg)
+            scaleY(1.1);
+    }
+}
+
+.botao {
+    position: relative;
+    z-index: 20;
+    margin-top: 14px;
+    padding: 14px 27px;
+    border: 0;
+    border-radius: 999px;
+    background: linear-gradient(135deg,#fff5b7,#ffd166);
+    color: #a51955;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #d59423, 0 14px 25px rgba(64, 5, 42, .28);
+    transition: .2s;
+    animation: entradaBotao 1s 1.3s both;
+}
+
+.botao:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 11px 0 #d59423, 0 18px 30px rgba(64, 5, 42, .3);
+}
+
+.botao:active {
+    transform: translateY(6px);
+    box-shadow: 0 2px 0 #d59423, 0 7px 13px rgba(64, 5, 42, .25);
+}
+
+@keyframes entradaBotao {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.coracao {
+    position: fixed;
+    z-index: 2;
+    bottom: -60px;
+    font-size: 30px;
+    pointer-events: none;
+    animation: subirCoracao linear forwards;
+    filter:drop-shadow(0 5px 5px rgba(85, 8, 52, .2));
+}
+
+@keyframes subirCoracao {
+    0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0) rotate(0) scale(.5);
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-55vh) translateX(30px) rotate(15deg) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-115vh) translateX(-25px) rotate(-20deg) scale(1.25);
+    }
+}
+
+.balao {
+    position: fixed;
+    z-index: 1;
+    bottom: -160px;
+    width: 58px;
+    height: 75px;
+    border-radius: 50%;
+    opacity: .85;
+    animation: subirBalao linear forwards;
+}
+
+.balao::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -7px;
+    width: 12px;
+    height: 12px;
+    transform: translateX(-50%) rotate(45deg);
+    background: inherit;
+}
+
+.balao::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    width: 1px;
+    height: 110px;
+    background: rgba(255,255,255,.65);
+}
+
+@keyframes subirBalao {
+    0% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-65vh) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(-130vh) rotate(-3deg);
+    }
+}
+
+.confete {
+    position: fixed;
+    z-index: 30;
+    top: -20px;
+    width: 10px;
+    height: 18px;
+    pointer-events: none;
+    animation: cairConfete linear forwards;
+}
+
+@keyframes cairConfete {
+    0% {
+        transform: translateY(-10vh) rotate(0);
+    }
+
+    100% {
+        transform: translateY(115vh) rotate(900deg);
+    }
+}
+
+.surpresa {
+    position: fixed;
+    z-index: 100;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(71, 8, 52, .72);
+    backdrop-filter: blur(7px);
+}
+
+.surpresa.ativa {
+    display: flex;
+    animation: aparecerFundo .4s both;
+}
+
+.cartao {
+    position: relative;
+    width: min(720px, 94vw);
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 38px 28px 30px;
+    color: #8f174b;
+    background: linear-gradient(145deg, #ffffff, #fff0f6);
+    border-radius: 28px;
+    box-shadow: 0 25px 70px rgba(0,0,0,.3);
+    animation: abrirCartao .6s cubic-bezier(.2, .9, .2, 1.2) both;
+}
+
+.conteudoCartao {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    text-align: left;
+}
+
+.fotoCartao {
+    width: 220px;
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
+    border: 5px solid #ff86b3;
+    border-radius: 22px;
+    box-shadow: 0 12px 28px rgba(143, 23, 75, .25);
+    flex-shrink: 0;
+}
+
+.textoCartao {
+    flex: 1;
+}
+
+.textoCartao h2 {
+    margin-bottom: 15px;
+    color: #ff357c;
+    font-size: clamp(29px, 6vw, 45px);
+    line-height: 1.1;
+}
+
+.textoCartao p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.grande {
+    display: block;
+    width: max-content;
+    margin: 20px auto 0;
+}
+
+.botaoCoracao {
+    position: relative;
+    z-index: 5;
+    padding: 5px 12px;
+    border: 0;
+    background: transparent;
+    font-size: 52px;
+    line-height: 1;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    animation: baterCoracao .8s ease-in-out infinite;
+    transition: transform .15s;
+}
+
+.botaoCoracao:hover {
+    filter: drop-shadow(0 5px 8px rgba(255, 53, 124, .35));
+}
+
+.botaoCoracao.pressionado {
+    animation: coracaoPressionado .3s ease-in-out infinite alternate;
+}
+
+@keyframes coracaoPressionado {
+    from {
+        transform: scale(.85) rotate(-6deg);
+    }
+
+    to {
+        transform: scale(1.2) rotate(6deg);
+    }
+}
+
+.coracaoCaindo {
+    position: fixed;
+    z-index: 200;
+    top: -70px;
+    pointer-events: none;
+    user-select: none;
+    animation: quedaCoracao linear forwards;
+    filter: drop-shadow(0 4px 4px rgba(90, 10, 55, .25));
+}
+
+@keyframes quedaCoracao {
+    0% {
+        opacity: 0;
+        transform:
+            translate3d(0, -50px, 0)
+            rotate(0deg)
+            scale(.6);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translate3d(var(--movimento), 50vh, 0)
+            rotate(180deg)
+            scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform:
+            translate3d(
+                calc(var(--movimento) * -1),
+                115vh,
+                0
+            )
+            rotate(540deg)
+            scale(1.15);
+    }
+}
+
+.fechar {
+    position: absolute;
+    z-index: 5;
+    top: 10px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: #ff4d8d;
+    color: white;
+    font-size: 20px;
+    line-height: 32px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.fechar:hover {
+    transform: scale(1.1);
+    background: #e72b70;
+}
+
+@keyframes aparecerFundo {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes abrirCartao {
+    from {
+        opacity: 0;
+        transform: scale(.2) rotate(-12deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@keyframes baterCoracao {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(1.25);
+    }
+
+    60% {
+        transform: scale(1.08);
+    }
+}
+
+@media (max-width: 650px) {
+    .cartao {
+        padding: 50px 20px 26px;
+    }
+
+    .conteudoCartao {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .fotoCartao {
+        width: min(230px, 75vw);
+        height: 250px;
+    }
+
+    .textoCartao h2 {
+        font-size: 32px;
+    }
+
+    .textoCartao p {
+        font-size: 17px;
+    }
+}
+
+@media (max-height: 700px) {
+    .container {
+        padding: 15px;
+    }
+
+    .titulo {
+        font-size: clamp(32px, 8vw, 55px);
+        margin-bottom: 8px;
+    }
+
+    .mensagem {
+        padding: 11px 17px;
+        font-size: 16px;
+    }
+
+    .bolo-container {
+        margin: 8px 0 -8px;
+        transform: scale(.82);
+    }
+
+    .botao {
+        margin-top: 0;
+    }
+
+    .fotoCartao {
+        height: 210px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+    <h1 class="titulo">Feliz aniversário,<br><span>Amor!</span></h1>
+    <p class="mensagem">Que seu dia seja tão lindo, especial e cheio de alegria quanto você torna todos os meus 💕</p>
+    <div class="bolo-container">
+        <div class="velas">
+            <div class="vela">
+                <div class="chama"></div>
+            </div>
+            <div class="vela">
+                <div class="chama"></div>
+            </div>
+            <div class="vela">
+                <div class="chama"></div>
+            </div>
+        </div>
+        <div class="bolo">
+            <div class="cobertura"></div>
+            <div class="decoracao">💗</div>
+        </div>
+        <div class="prato"></div>
+    </div>
+    <button class="botao" id="botaoSurpresa">Clique para receber seu presente 💝</button>
+</main>
+
+<div class="surpresa" id="surpresa">
+    <div class="cartao">
+        <button class="fechar" id="fechar" aria-label="Fechar cartão">×</button>
+        <div class="conteudoCartao">
+            <img src="amor.jpg" alt="Foto" class="fotoCartao">
+            <div class="textoCartao">
+                <h2>Obrigado por existir!</h2>
+                <p>Hoje é dia de celebrar a sua vida e agradecer a Deus por ter você ao meu lado.<br><br>Que nunca faltem motivos para seu lindo sorriso, sonhos para realizarmos juntos e muito amor em nossas vidas.<br>Te amoooooo!</p>
+                <button type="button" class="grande botaoCoracao" id="botaoCoracao" aria-label="Pressione para criar uma chuva de corações">💖</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+const simbolosCoracao = ["❤️","💕","💗","💖","💘","💝"];
+const coresBaloes = ["#ff4d8d","#ffd166","#7dd3fc","#c084fc","#fb7185","#86efac"];
+const coresConfete = ["#ff1744","#ffd166","#38bdf8","#a855f7","#22c55e","#ffffff"];
+
+function criarCoracao() {
+    const coracao = document.createElement("div");
+    const indice = Math.floor(Math.random() * simbolosCoracao.length);
+    coracao.className = "coracao";
+    coracao.textContent = simbolosCoracao[indice];
+    coracao.style.left = Math.random() * 100 + "vw";
+    coracao.style.fontSize = 18 + Math.random() * 30 + "px";
+    coracao.style.animationDuration = 5 + Math.random() * 5 + "s";
+    document.body.appendChild(coracao);
+    setTimeout(() => {coracao.remove();}, 10500);
+}
+
+function criarBalao() {
+    const balao = document.createElement("div");
+    const indice = Math.floor(Math.random() * coresBaloes.length);
+    balao.className = "balao";
+    balao.style.left = Math.random() * 92 + "vw";
+    balao.style.background = coresBaloes[indice];
+    const escala = 0.65 + Math.random() * 0.65;
+    balao.style.transform = `scale(${escala})`;
+    balao.style.animationDuration = 8 + Math.random() * 7 + "s";
+    document.body.appendChild(balao);
+    setTimeout(() => {balao.remove();}, 15500);
+}
+
+function criarConfete(quantidade = 80) {
+    for (let i = 0; i < quantidade; i++) {
+        setTimeout(() => {
+            const confete = document.createElement("div");
+            const indice = Math.floor(Math.random() * coresConfete.length);
+            confete.className = "confete";
+            confete.style.left = Math.random() * 100 + "vw";
+            confete.style.background = coresConfete[indice];
+            confete.style.animationDuration = 2.5 + Math.random() * 3 + "s";
+            confete.style.borderRadius = Math.random() > .5 ? "50%" : "2px";
+            document.body.appendChild(confete);
+            setTimeout(() => {confete.remove();}, 6000);
+        }, i * 18);
+    }
+}
+
+setInterval(criarCoracao, 650);
+setInterval(criarBalao, 1700);
+
+for (let i = 0; i < 7; i++) {
+    setTimeout(criarCoracao, i * 250);
+}
+
+for (let i = 0; i < 4; i++) {
+    setTimeout(criarBalao, i * 500);
+}
+
+const surpresa = document.getElementById("surpresa");
+
+const botaoSurpresa = document.getElementById("botaoSurpresa");
+
+const fechar = document.getElementById("fechar");
+
+function abrirCartao() {
+    surpresa.classList.add("ativa");
+    criarConfete(120);
+}
+
+function fecharCartao() {
+    surpresa.classList.remove("ativa");
+}
+
+botaoSurpresa.addEventListener("click",abrirCartao);
+
+fechar.addEventListener("click",fecharCartao);
+
+surpresa.addEventListener("click", event => {
+    if (event.target === surpresa) {
+        fecharCartao();
+    }
+});
+
+document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        fecharCartao();
+    }
+});
+    
+const botaoCoracao = document.getElementById("botaoCoracao");
+
+const emojisCoracao = ["❤️","🧡","💛","💚","💙","💜","🤎","🖤","🤍","❤️‍🔥","💕","💞","💓","💗","💖","💘","💝","❣️"];
+
+let intervaloCoracoes = null;
+let pressionandoCoracao = false;
+
+function criarCoracaoCaindo() {
+    const coracao = document.createElement("span");
+    const emojiAleatorio = emojisCoracao[Math.floor(Math.random() * emojisCoracao.length)];
+    const tamanho = 20 + Math.random() * 32;
+    const duracao = 3.5 + Math.random() * 3;
+    const movimento = -90 + Math.random() * 180;
+    coracao.className = "coracaoCaindo";
+    coracao.textContent = emojiAleatorio;
+    coracao.style.left = Math.random() * 95 + "vw";
+    coracao.style.fontSize = tamanho + "px";
+    coracao.style.animationDuration = duracao + "s";
+    coracao.style.setProperty("--movimento",movimento + "px");
+    document.body.appendChild(coracao);
+    coracao.addEventListener("animationend",() => {coracao.remove();});
+}
+
+function iniciarChuvaCoracoes(event) {
+    if (event) {
+        event.preventDefault();
+    }
+
+    if (pressionandoCoracao) {
+        return;
+    }
+
+    pressionandoCoracao = true;
+
+    botaoCoracao.classList.add("pressionado");
+
+    criarCoracaoCaindo();
+    criarCoracaoCaindo();
+    criarCoracaoCaindo();
+
+    intervaloCoracoes = setInterval(() => {
+        criarCoracaoCaindo();
+        if (Math.random() > .55) {
+            criarCoracaoCaindo();
+        }
+    }, 130);
+}
+
+function pararChuvaCoracoes() {
+    pressionandoCoracao = false;
+    botaoCoracao.classList.remove("pressionado");
+    clearInterval(intervaloCoracoes);
+    intervaloCoracoes = null;
+}
+
+botaoCoracao.addEventListener("pointerdown",iniciarChuvaCoracoes);
+document.addEventListener("pointerup",pararChuvaCoracoes);
+document.addEventListener("pointercancel",pararChuvaCoracoes);
+window.addEventListener("blur",pararChuvaCoracoes);
+
+botaoCoracao.addEventListener("keydown",
+    event => {
+        if (event.key === " " || event.key === "Enter") {
+            iniciarChuvaCoracoes(event);
+        }
+    }
+);
+
+botaoCoracao.addEventListener("keyup",
+    event => {
+        if (event.key === " " || event.key === "Enter") {
+            pararChuvaCoracoes();
+        }
+    }
+);
+</script>
+
+</body>
+</html>
